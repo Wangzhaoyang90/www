@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			#box{
+				width: 370px;
+				height: 34px;
+				margin: 20px auto;
+				
+			}
+			#txt{
+				display: inline-block;
+				width: 130px;
+				text-align: center;
+				height: 30px;
+				margin-left: 20%;
+			}
+			
+			#btn{
+				display: inline-block;
+				width: 100px;
+				height: 34px;
+			}
+			#list{
+				width: 45%;
+				
+				margin: 1px auto;
+				display: none;
+				background: #F1F1F1;
+				text-align: center;
+				list-style: none;
+				line-height: 50px;
+				font-weight: bold;
+			}
+			li{
+				list-style: none;
+			}
+			
+			#info{
+				width: 45%;
+				min-height: 100px;
+				margin: 0 auto;
+				background: #F1F1F1;
+				display: none;
+			}
+			.xin{
+				height: 15px;
+				line-height: 15px;
+				padding: 10px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;/*强制不换行*/
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				var oBtn=$('#btn');
+				var oTxt = $("#txt");
+				var oList = $('#list');
+				$('#btn').click(function(){
+					$('#list').css({'display':'block'});
+					$('#info').css({'display':'block'});
+					$('li').remove()
+					var keys=oTxt.val();
+					var param={'station':keys,'key':'7ae2d153b3ab10c940cb91225444af49'};
+					ajaxFunc('get',false,'http://op.juhe.cn/onebox/bus/query',param);
+				})
+				//-------------------------
+				$(function(){//按回车键搜索 
+					$(document).keydown(function(event){ 
+						if(event.keyCode==13){ 
+							$("#btn").click(); 
+						}
+					});
+				});
+			})
+			function ajaxFunc(t_type,t_async,t_url,t_data){
+			    $.ajax({
+			        type:t_type,
+			        dataType: 'jsonp',
+			        jsonp:'callback',
+					jsonpCallback:'success_jsonpCallback',
+			        async:t_async,
+			        url:t_url,
+			        data:t_data,
+			        success:function(data){
+						$('#list').html("<li class='num'>"+data['result']['title']+"</li>");
+						for(var i=0;i<$(data['result']['list']).length;i++){
+							$('#info').append("<li class='xin' title="+data['result']['list'][i]['adds']+">"+data['result']['list'][i]['name']+':&nbsp;'+data['result']['list'][i]['tel']+'&nbsp;'+data['result']['list'][i]['adds']+"</li>");
+						}
+			        }
+			    });
+			}   
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="txt" placeholder="请输入城市名称" />
+			<button id="btn">查询时刻表</button>
+		</div>
+		<ul id="list"></ul>
+		<ul id="info"></ul>
+	</body>
+</html>

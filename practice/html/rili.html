@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+		<meta charset="UTF-8">
+		<title>日历</title>
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/DataTables.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-table.css" />
+		<link rel="stylesheet" href="../css/bootstrap-datetimepicker.css" />
+		<link rel="stylesheet" href="../css/rili.css" />
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+		<script type="text/javascript" src="../js/DataTables.min.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table-zh-CN.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" ></script>
+		<script type="text/javascript" src="../js/commen.js" ></script>
+		<script type="text/javascript" src="../js/jquery.jsonp.js" ></script>
+		<script type="text/javascript" src="../js/rili.js" ></script>
+		<!--<script type="text/javascript" src="../js/tool2.js" ></script>-->
+	</head>
+	<body style="background: url(../images/logo3.jpg);">
+		<div id="bigBox">
+			<div id="box">
+				<div class="select">
+					<div class="chose">
+						<p class="lastMonth"><</p>
+						<input type="text" class="selectDate" readonly="readonly" value="2016年12月" />
+						<p class="nextMonth">></p>
+					</div>
+				</div>
+				<ul class="th">
+			    	<li>周日</li>
+			    	<li>周一</li>
+			    	<li>周二</li>
+			    	<li>周三</li>
+			    	<li>周四</li>
+			    	<li>周五</li>
+			    	<li>周六</li>
+			    </ul>
+			    <ul id="days" class="day"></ul>
+			</div>
+			<div id="rightList">
+				<div id="list">
+					<span id="time"></span>
+					<span id="riqi"></span>
+					<input type="hidden" value="" />
+					<div id="nong">
+						<span id="yi"></span>
+						<span id="ji"></span>
+					</div>
+					<div id="weather">
+						<div class="city">
+							<div class="names">北京</div><div class="change">[切换]</div>
+						</div>
+						<div class="days zuo">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+						<div class="days day_0">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+						<div class="days day_1" style="border-right: none;">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+						<div style="clear: both;"></div>
+						<div class="xian"></div>
+						<div class="days day_2">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+						<div class="days day_3">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+						<div class="days day_4" style="border-right: none;">
+							<li class="xingqi"></li>
+							<li class="wendu"><img src=""/></li>
+							<li class="tianqi"></li>
+							<li class="diwen"></li>
+							<li class="gaowen"></li>
+							<li class="feng move"></li>
+							<li class="jishu"></li>
+						</div>
+					</div>
+					<div id="jianyi">
+						<li class="zhuyi"></li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

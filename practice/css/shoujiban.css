@@ -1,0 +1,159 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+.title{
+	width: 16rem;
+	height: 5.445rem;
+	margin: 0 auto;
+	padding-top: 2rem;
+	background: url(../images/title1.jpg) repeat-x;
+}
+.rili{
+	width: 16rem;
+	height: 17.8rem;
+	background: url(../images/logo4.jpg)no-repeat;
+}
+.info{
+	width: 16rem;
+	/*height: 3.2rem;*/
+	height: 2.5rem;
+	background: url(../images/info.jpg) repeat-x;
+}
+/*----------*/
+.time{
+	width: 4.8rem;
+	height: 2.43rem;
+	font-size: 1.4rem;
+	margin-left: 1rem;
+	color: #fff;
+	text-align: center;
+	line-height: 2.43rem;
+}
+.date{
+	width: 6rem;
+	height: 0.64rem;
+	margin-left: 0.9rem;
+	margin-top: 0.0533rem;
+	font-size: 0.5rem;
+	color: #fff;
+	text-align: center;
+	line-height: 0.64rem;
+}
+.weather{
+	width: 4.91rem;
+	height: 2.36rem;
+	margin-left: 10rem;
+	margin-top: -3rem;
+	padding-top: 0.6rem;
+}
+.tubiao{
+	width: 1.6823rem;
+	height: 1.6823rem;
+	margin-left: 0.5rem;
+}
+.tubiao img{
+	display: block;
+	width: 1.69rem;
+	height: 1.69rem;
+}
+.locate{
+	width: 1.6823rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	margin-left: 2.6rem;
+	margin-top: -1.9rem;
+	font-size: 0.5rem;
+	text-align: center;
+	color: #fff;
+}
+.wendu{
+	width: 1.6823rem;
+	height: 1.36rem;
+	margin-left: 2.6rem;
+	font-size: 0.9rem;
+	text-align: center;
+	line-height: 1.36rem;
+	color: #fff;
+}
+/*--------*/
+.rili .th{
+	width:15.90rem;
+	height: 1.5rem;
+	overflow: hidden;
+	color: #fff;
+}
+.rili .th li{
+	list-style: none;
+	width: 2.2rem;
+	text-align: center;
+	line-height: 1.5rem;
+	font-size: 0.5rem;
+	float: left;
+}
+.rili .th li:nth-child(1),.rili .th li:nth-child(7){
+	color: red;
+	width: 2.23rem;
+}
+
+.chose{
+	height: 2rem;
+	margin-top: -0.2rem;
+	background: url(../images/calendar_bottom.png) no-repeat 9.8rem center;
+}
+
+.selectDate{
+	width: 5rem;
+    text-align: center;
+    font-size: 0.6rem;
+   	margin-left: 5.3rem;
+   	line-height: 2rem;
+   	background-color:transparent;  
+    color:#fff;  
+    filter: alpha(opacity=0); /*androd*/  
+    -moz-appearance:none;  
+    -webkit-appearance:none; 
+    border: 0; 
+}
+/*-------------*/
+.neirong{
+	width: 15.90rem;
+	height: 16rem;
+}
+#days{
+	width: 15.90rem;
+	height: 13.2rem;
+}
+#days li{
+	list-style: none;
+	height:2.2rem;
+	line-height:2.2rem;
+	font-size:0.6rem;
+	color:#a75a0c;
+	width: 2.2rem;
+	text-align:center;
+	float: left;
+}
+#days li:nth-child(7),#days li:nth-child(14),#days li:nth-child(21),#days li:nth-child(28),#days li:nth-child(35),#days li:nth-child(42),#days li:nth-child(1),#days li:nth-child(8),#days li:nth-child(15),#days li:nth-child(22),#days li:nth-child(29){
+	width: 2.23rem;
+	color: purple;
+}
+#days li.active{
+	background:deepskyblue;
+	color: #DA5751;
+}
+#days li.passed{
+	color:#bdbdbd;
+}
+
+#days li:nth-child(7).passed,#days li:nth-child(14).passed,#days li:nth-child(21).passed,#days li:nth-child(28).passed,#days li:nth-child(35).passed,#days li:nth-child(1).passed,#days li:nth-child(8).passed,#days li:nth-child(15).passed,#days li:nth-child(22).passed,#days li:nth-child(29).passed{
+	color:purple;
+}
+#days li:hover{
+	background:deepskyblue;
+	color: #d45170;
+}
+/*---模态框----*/
+
+

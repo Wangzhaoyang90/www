@@ -1,0 +1,108 @@
+
+@media screen and (min-width: 1200px) and (max-width:1366px){
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "微软雅黑";
+	}
+	.box{
+		width: 90%;
+		border-radius: 5px;
+		margin: 30px auto;
+	}
+	.left,.right,.left1{
+		float: left;
+	}
+	.left,.left1{
+		margin-left: 10px;
+		margin-right: 5px;
+		line-height: 30px;
+	}
+	.left1{
+		margin-left: 40px;
+	}
+	.form-control{
+		width: 200px;
+		height: 30px;
+		border-radius: 5px;
+	}
+	.clearfloat{
+		clear: both;
+	}
+	
+	.form-control:focus{
+		outline: none;
+	}
+}
+@media screen and (min-width:768px) and (max-width:1200px){
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "微软雅黑";
+	}
+	.box{
+		margin-left: 6%;
+		margin-top: 30px;
+	}
+	.left,.right,.left1{
+		float: left;
+	}
+	.left,.left1{
+		margin-left: 10px;
+		margin-right: 5px;
+		line-height: 30px;
+	}
+	.left1{
+		margin-left: 40px;
+	}
+	.form-control{
+		width: 100px;
+		height: 30px;
+		border-radius: 5px;
+	}
+	.form-control:focus{
+		outline: none;
+	}
+	.clearfloat{
+		clear: both;
+	}
+	body{
+		background: #FAFAFA;
+	}
+}
+@media screen and (max-width:768px){
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "微软雅黑";
+	}
+	.box{
+		margin-left: 4%;
+		margin-top: 30px;
+	}
+	.left,.right,.left1{
+		float: left;
+	}
+	.left,.left1{
+		margin-left: 10px;
+		margin-right: 5px;
+		line-height: 30px;
+	}
+	.left1{
+		margin-left: 40px;
+	}
+	.form-control{
+		width: 70px;
+		height: 30px;
+		border-radius: 5px;
+	}
+	.clearfloat{
+		clear: both;
+	}
+	body{
+		background: #eee;
+	}
+	.form-control:focus{
+		outline: none;
+	}
+}

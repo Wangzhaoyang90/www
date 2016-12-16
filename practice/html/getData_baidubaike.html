@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度百科</title>
+		<!--<link rel="stylesheet" href="../css/bootstrap.css" />-->
+		<!--<link rel="stylesheet" href="../css/bootstrap-table.css" />-->
+		<!--<link rel="stylesheet" href="../css/bootstrap-datetimepicker.css" />-->
+		<link rel="stylesheet" href="../css/bootstrapFileInput.css" />
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<script src="../js/jquery.js"></script>
+		<!--<script src="../js/bootstrap.js"></script>-->
+		<!--<script src="../js/bootstrap-table.js"></script>-->
+		<!--<script src="../js/bootstrap-datetimepicker.js"></script>
+		<script type="text/javascript" src="../js/bootstrap-table-zh-CN.js" ></script>-->
+		<script type="text/javascript" src="../js/bootstrapFileInput.js" ></script>
+		<!--<script type="text/javascript" src="../js/jquery.jsonp.js" ></script>-->
+		<script src="../js/newfile.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//初始化界面显示的内容
+				var params={'scope':103,'appid':379020,'bk_key':'百度百科','bk_length':600};//参数
+				ajaxResult('get',false,'http://baike.baidu.com/api/openapi/BaikeLemmaCardApi',params);
+			    var oBtnTest = $("#btnTest");
+			    var oBtn=$('#btn');
+			    oBtn.click(function(){
+			    	if($('#content').text()!=''){//如果页面有显示
+			    		$('.clearfloat').remove('');//先把清除浮动移除,再加载数据,防止下次叠加
+			    		$('.name').remove('');//先把dt移除,再加载数据,防止下次叠加
+						$('.value').remove('');//先把dt移除,再加载数据,防止下次叠加
+						var keys=oBtnTest.val();
+		    			var param={'scope':103,'appid':379020,'bk_key':keys,'bk_length':600};//参数
+		    			ajaxResult('get',false,'http://baike.baidu.com/api/openapi/BaikeLemmaCardApi',param);
+			    	}
+			    });
+				$(function(){//按回车键搜索 
+					$(document).keydown(function(event){ 
+						if(event.keyCode==13){ 
+							$("#btn").click(); 
+						}
+					});
+				});
+			});
+			function ajaxResult(t_type,t_async,t_url,t_data){		
+				//var result="";
+				$.ajax({
+					type:t_type,
+					dataType: 'jsonp',
+					jsonp:'callback',
+					jsonpCallback:'success_jsonpCallback',
+					async:t_async,
+					url:t_url,
+					data:t_data,
+					success:function(data){				
+					    	//result=data;
+					   	$('.results').text(data.abstract);
+					   	$('.info').text(data.copyrights);
+					   	//$('.nei').text(data.catalog[0]);
+					   	for(var i=0;i<$(data['card']).length;i++){//循环后台数据中card里的值,对应添加到dt,dd中
+					   		var num = Math.floor($(data['card']).length/2);//card值的长度分成2份,向下取整
+					   		if(i<num){//较少的在页面左侧
+					   			$('.basicInfo-block').append("<div class='clearfloat'></div><dt class='basicInfo-item name'></dt><dd class='basicInfo-item value'></dd>");
+					   		}
+					   		else{//多的在右侧
+					   			$('.rights').append("<div class='clearfloat'></div><dt class='basicInfo-item name'></dt><dd class='basicInfo-item value'></dd>");
+					   		}
+					   		$('.name').eq(i).html(data['card'][i]['name']);
+					   		$('.value').eq(i).html(data['card'][i]['value']);
+					   	}
+					}	
+				});	
+				//return result;
+			}
+		</script>
+	</head>
+	<body style="background: rgb(245,245,245);">
+		
+		<!--<select class="form-control" id="LB_CPFL1" name="CPFL1" style="width: 25%; float: left;">
+	        <option>请选择</option>
+	      </select>
+	      <span>
+	      <select class="form-control" id="LB_CPFL2" name="CPFL2" style="width: 25%; float: left;">
+	        <option>请选择</option>
+	      </select>
+	      </span>
+	      <select class="form-control" id="LB_CPFL3" name="CPFL3" style="width: 25%; float: left;">
+	        <option>请选择</option>
+	      </select>-->
+	    <div class="big">
+	      <div id="box">
+	      	<img src="../images/QQ.png">
+	      	<input type='text' id="btnTest" name="btnTest" value="百度百科" />
+	      	<input type='hidden' id="key" name="id" />
+	    	<button id="btn">进入词条</button>
+	      </div>
+	    </div>
+	    <div class="word">
+			<div id="title">
+				<div class="results"></div>
+				<hr/>
+				<div id="content">
+					<dl class="basicInfo-block basicInfo-left"></dl>
+					<dl class=" basicInfo-left rights"></dl>
+					<div class="clearfloats"></div>
+					<div class="info"></div>
+					<!--<div class="nei"></div>-->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

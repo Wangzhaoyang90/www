@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#box{
+	width: 370px;
+	height: 34px;
+	margin: 20px auto;
+	
+}
+#txt{
+	display: inline-block;
+	width: 130px;
+	text-align: center;
+	height: 30px;
+	margin-left: 23%;
+}
+
+#btn{
+	display: inline-block;
+	width: 100px;
+	height: 34px;
+}
+#list{
+	width: 27%;
+	min-height: 50px;
+	margin: 10px auto;
+	border: 1px solid #ccc;
+}
+.num{
+	text-align: center;
+	list-style: none;
+	line-height: 50px;
+	font-weight: bold;
+}

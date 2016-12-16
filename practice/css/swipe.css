@@ -1,0 +1,38 @@
+.swipe{
+    overflow: hidden;
+    visibility: hidden;
+    position:relative;
+}
+.swipe-wrap{
+    overflow-x:hidden;
+    position:relative;
+}
+.swipe-wrap > div {
+    float: left;width: 100%;
+    position:relative;
+}
+#position{
+   position: absolute;
+   bottom: 0rem;
+   left: 0;
+   .rem(margin-top, 20rem);
+   .rem(margin-bottom, 10rem);
+   margin: 0;
+   opacity: 0.4;
+   width: 100%;
+   filter: alpha(opacity=50);
+   text-align: center;
+}
+/* 小数点布局 */
+#position li{
+	  width: 30px;
+	  height: 30px;
+	  margin: 0 8px;
+	  display: inline-block;
+	  -webkit-border-radius: 30px;
+	  border-radius: 5px;
+	  background-color: #CAC2C2;
+}
+#position li.cur{
+    background-color: black;
+}

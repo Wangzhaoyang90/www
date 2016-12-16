@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>淘宝搜索</title>
+		<!--<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/bootstrap-table.css" />-->
+		<!--<link rel="stylesheet" href="../css/baidu.css" />-->
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<!--<script type="text/javascript" src="../js/bootstrap.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table-zh-CN.js" ></script>-->
+		<script type="text/javascript" src="../js/baidu.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding:0;
+			}
+			li{
+				list-style: none;
+				padding-left: 10px;
+				font-size: 13px;
+				height: 30px;
+				line-height: 30px;
+			}
+			.word{
+				display: block;
+				width: 100%;
+				color: #999;
+				text-decoration: none;
+			}
+			#box{
+				width: 800px;
+				height: 50px;
+				margin: 0 auto;
+			}
+			#txt{
+				float: left;
+				width: 300px;
+				height: 30px;
+				margin-left: 16%;
+				margin-top: 2%;
+			}
+			#btn{
+				float: left;
+				margin-left: 2%;
+				margin-top: 2%;
+				width: 100px;
+				height: 34px;
+				text-align: center;
+			}
+			#list{
+				width: 304px;
+				height: 200px;
+				border: 1px solid #ccc;
+				margin-left: 30%;
+				overflow-y: scroll;
+				display: none;
+			}
+			li:hover{
+				background: rgb(240,240,240);
+			}
+			
+		</style>
+		<script>
+			$(document).ready(function(){
+				var oBtn=$('#btn');
+				var oTxt = $("#txt");
+				var oList = $('#list');
+				$('#txt').bind('input propertychange', function() {//当input框值改变时
+					if($('#list').text()!=''){//如果列表不为空
+						$(".names").remove();//清除li，防止下次搜索时累计结果
+						var keys=oTxt.val();
+		    			var param={'code':'utf-8','q':keys};//参数
+		    			$('#list').css({'display':'block'});//列表不为空时，显示出来。
+		    			ajaxFunc('get',false,'http://suggest.taobao.com/sug',param,'#list');
+					}else{//列表为空时
+						var keys=oTxt.val();
+	    				var param={'code':'utf-8','q':keys};//参数
+	    				$('#list').css({'display':'block'});
+	    				ajaxFunc('get',false,'http://suggest.taobao.com/sug',param,'#list');
+					}
+				})
+//				$(function(){//按回车键搜索 
+//					$(document).keydown(function(event){ 
+//						if(event.keyCode==13){ 
+//							$("#btn").click(); 
+//						}
+//					});
+//				});
+				$('#txt').blur(function(){//input失去焦点时
+					$('#list').css({'display':'none'})
+				})
+				$('#txt').focus(function(){//input框选中时
+					if($(this).val()!=''){//判断input值不为空
+						$('#list').css({'display':'block'})
+					}
+				})
+			})
+			function ajaxFunc(t_type,t_async,t_url,t_data,t_dom){
+			    $.ajax({
+			        type:t_type,
+			        dataType: 'jsonp',
+			        jsonp:'callback',
+					jsonpCallback:'success_jsonpCallback',
+			        async:t_async,
+			        url:t_url,
+			        data:t_data,
+			        success:function(data){
+			            for(var i=0;i<$(data['result']).length;i++){
+			            	$(t_dom).append("<li class='names'><a href='#' class='word'>"+data['result'][i][0]+"</a></li>");
+						    $('#list li a').mouseover(function(){//划过每一行的a链接
+								var str = $(this).text();
+								$("#txt").val(str);//input框的value值为划过的文字
+							})
+						    $('#list li a').click(function(){//点击每一行的a链接
+								var str = $(this).text();
+								$("#txt").val(str);
+							})
+			            }
+			        }
+			    });
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="text" id="txt" value=""/>
+			<input type="submit" value="搜索" id="btn" />
+		</div>
+		<ul id="list"></ul>
+		
+</body>
+</html>

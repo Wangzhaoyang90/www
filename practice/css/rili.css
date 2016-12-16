@@ -1,0 +1,274 @@
+*{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-family:"微软雅黑";
+}
+.select{
+	width: 89%;
+	/*width: 595px;*/
+	height: 40px;
+	border-radius: 10px;
+	background: #fff;
+	margin: 5px auto 1px;
+}
+.chose{
+	width: 156px;
+	margin: 0 auto;
+	line-height: 40px;
+}
+.select p,.select .selectDate{
+	display: inline-block;
+}
+.select p{
+	margin: 0 10px 0;
+	cursor: pointer;
+}
+.select .selectDate{
+	border: none;
+	font-weight: bold;
+}
+#bigBox{
+	width: 100%;
+	margin: 0 auto;
+}
+#box{
+	float: left;
+	width: 50%;
+	/*width:682px;*/
+	margin-left:8%;
+	height:660px;
+	/*background-color:#ffbd66;*/
+	background:rgba(255, 255, 255, 0)!important;
+	filter:Alpha(opacity=60);
+	border-radius: 12px;
+	overflow:hidden;
+}
+#box ul.th{
+	width: 89%;
+	background:#fee684;
+	border-radius:12px 12px 0px 0px;
+	overflow:hidden;
+	/*width:595px;*/
+	margin:0px auto 4px;
+}
+#box ul.th li{
+	height:60px;
+	line-height:60px;
+	font-size:18px;
+	color:#a75a0c;
+	float:left;
+	width: 14%;
+	/*width:85px;*/
+	text-align:center;
+}
+#box ul.day{
+	overflow:hidden;
+	width: 90%;
+	/*width:595px;*/
+	margin:0 auto;
+}
+#box ul.day li{
+	width: 14%;
+	/*width:84px;*/
+	height:84px;
+	background:#fefff1 no-repeat center center;
+	border-radius:10px;
+	float:left;
+	margin:0 1px 1px 0;
+	font-family:Impact;
+	font-size:30px;
+	color:#ad570e;
+	text-align:center;
+	line-height:84px;
+	cursor:pointer;
+}
+#box ul.day li.active{
+	background-image:url(../images/circle.png);
+}
+#box ul.day li.passed{
+	color:#bdbdbd;
+}
+#box ul.day li:hover{background-image:url(../images/circle.png);}
+/*-------*/
+#rightList{
+	float: left;
+	width: 40%;
+	/*width: 420px;*/
+	min-height: 620px;
+	margin-left: 10px;
+}
+#list{
+	background:rgba(255, 255, 255, 0)!important;
+	filter:Alpha(opacity=60);
+	border-radius: 10px;
+	width: 75%;
+	/*width: 420px;*/
+	min-height: 660px;
+	/*background: #ffbd66;*/
+}
+#time{
+	display: block;
+	width: 96%;
+	/*width: 410px;*/
+	height: 45px;
+	margin: 5px auto 1px;
+	color: #666;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 45px;
+	border-radius: 10px;
+	background: #fff;
+	border-radius: 10px;
+}
+#riqi{
+	display: block;
+	margin: 0px auto;
+	width: 96%;
+	/*width: 410px;*/
+	height:60px;
+	line-height: 60px;
+	color: #0af;
+	font-size: 60px;
+	background: #fff;
+	text-align: center;
+	border-radius: 10px;
+}
+#nong{
+	display: block;
+	width: 96%;
+	/*width: 410px;*/
+	height: 80px;
+	margin: 1px auto;
+	
+	background: #fff;
+	border-radius: 10px;
+}
+#yi li,#ji li{
+	display: block;
+	width: 96%;
+	/*width: 410px;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;/*强制不换行*/
+	padding-left: 20px;
+	padding-top: 10px;
+	color: #666;
+	font-size: 10px;
+	color: #666;
+}
+i,p{
+	color: #65bf10;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+}
+p{
+	display: inline-block;
+	color: #ffaf23;
+}
+#weather{
+	width: 96%;
+	/*width: 410px;*/
+	min-height: 360px;
+	background: #FFF;
+	border-radius: 10px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.city{
+	width: 96%;
+	/*width: 395px;*/
+	height:30px;
+	margin: 0 auto;
+	margin-left: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.names{
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	
+	text-align: center;
+}
+input{
+	display: block;
+	width: 80px;
+	height: 30px;
+	text-align: center;
+}
+.change{
+	display: inline-block;
+	color: orange;
+	cursor: pointer;
+	line-height: 30px;
+}
+.days{
+	width: 33%;
+	/*width: 136px;*/
+	height: 154px;
+	overflow: hidden;
+	float: left;
+	margin-top: 5px;
+	border-right: 1px dashed #ccc;
+	
+}
+.days li,.day_0{
+	text-align: center;
+	font-size: 12px;
+	line-height: 30px;
+	color: gray;
+}
+.day_0 li{
+	color: black;	
+}
+.days .wendu{
+	font-size: 14px;
+	color: #2aabff;
+}
+.xian{
+	width: 96%;
+	/*width: 395px;*/
+	margin: 5px auto;
+	border-bottom: 1px solid #ccc;
+}
+.diwen,.gaowen,.feng,.jishu{
+	float: left;
+	line-height: 30px;
+}
+.diwen{
+	/*width: 57%;*/
+	margin-left: 25%;
+	font-size: 9px;
+}
+.gaowen{
+	font-size: 12px;
+	/*margin-left: 7%;*/
+}
+.feng{
+	display: block;
+	/*width: 80px;*/
+	width: 60%;
+	font-size: 9px;
+}
+
+#jianyi{
+	width: 96%;
+	/*width: 410px;*/
+	min-height: 65px;
+	background: #fff;
+	border-radius: 10px;
+	margin: 1px auto;
+}
+#jianyi .zhuyi{
+	color: gray;
+	padding: 10px;
+}
+img{
+	display: block;
+	widows: 32px;
+	height: 32px;
+	margin: 0 auto;
+}

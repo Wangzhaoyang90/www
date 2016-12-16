@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/DataTables.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-table.css" />
+		<link rel="stylesheet" href="../css/bootstrap-datetimepicker.css" />
+		
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+		<script type="text/javascript" src="../js/DataTables.min.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-table-zh-CN.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" ></script>
+		<script type="text/javascript" src="../js/commen.js" ></script>
+		<style>
+			body{
+				background: url(../images/logo1.jpg) no-repeat 0 0;
+			}
+			#top{
+				width: 100%;
+				height: 88px;
+				background: rgb(23,71,121);
+			}
+			#leftNav{
+				width: 50px;
+				height: 576px;
+				background: ;
+				position: absolute;
+				left: -1px;
+				top: 88px;
+				border-right: 1px solid #fff;
+			}
+			#right{
+				width: 142px;
+				height: 576px;
+				position: absolute;
+				left: 49px;
+				top: 88px;
+				background: rgb(86,172,228);
+			}
+			#right a{
+				display: block;
+				width: 142px;
+				height: 50px;
+				color: #fff;
+				text-align: center;
+				line-height: 50px;
+				text-shadow: 1px 1px 1px #174779;
+				border-bottom: 1px solid #fff;
+			}
+			img{
+				margin:25px 10px;
+			}
+			.left1,.left2{
+				margin: 0;
+				width: 50px;
+				height: 80px;
+				font-weight: 300;
+				cursor: pointer;
+			}
+			.left1{
+				background: url(../images/icon-home.png) no-repeat 10px 25px;
+				
+			}
+			.left1.active{
+				background:url(../images/icon-home-hover.png) no-repeat 10px 25px rgb(86,172,228);
+			}
+			.left2{
+				background: url(../images/icon-function.png) no-repeat 10px 25px;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('.left1').click(function(){
+					$(this).css({'background':'url("../images/icon-home-hover.png") no-repeat 10px 25px rgb(86,172,228)'});
+					$('#right').css({'display':'none'})
+					$('.left2').css({'background':'url("../images/icon-function.png") no-repeat 10px 25px'});
+					$(this).css({'border':'1px solid #fff'});
+					$(this).css({'border-right':'none'});
+					$(this).css({'border-top':'none'});
+					$('.left2').css({'border':'1px solid #fff'});
+					$('.left2').css({'border-top':'none'});
+				})
+				$('.left2').click(function(){
+					$('#right').css({'display':'block'})
+					$('.left1').css({'background':'url("../images/icon-home.png") no-repeat 10px 25px'});
+					$(this).css({'background':'url("../images/icon-function-hover.png") no-repeat 10px 25px rgb(86,172,228)'});
+					$(this).css({'border':'1px solid #fff'});
+					$(this).css({'border-right':'none'});
+					$('.left1').css({'border':'none'});
+				})
+				$('.left2').click(function(){
+					ajaxResult('get',false,'http://palace.sinosoft.com:8080/palace/nav.getNavigatorInfo.do',{'_':'1481511165369'})
+					
+				})
+			})
+			
+			function ajaxResult(t_type,t_async,t_url,t_data){		
+//				var result="";
+				$.ajax({
+					type:t_type,
+					dataType: 'jsonp',
+					async:t_async,
+					url:t_url,
+					data:t_data,
+					success:function(data){		
+//					    	result=data;
+						$('#right').append("<a href='#'>"+data['name']+"</a>");
+					}
+				});	
+			
+//				return result;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="top"></div>
+		<div id="leftNav">
+			<div class="left1 active">
+			</div>
+			<div class="left2"></div>
+		</div>
+		<div id="right" style="display: none;">
+			<!--<a href="#">任务中心</a>-->
+		</div>
+	</body>
+</html>

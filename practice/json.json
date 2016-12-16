@@ -1,0 +1,42 @@
+package com.chen.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
+/**
+ * 
+ * @author CHEN
+ * @description 提交表单 
+ * @导包：json-lib-2.2.2-jdk15.jar\ezmorph-1.0.4.jar
+ */
+@WebServlet("/form_submit")
+public class FormSubmit extends HttpServlet{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -8615452472287083708L;
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        System.out.println(req.getParameter("myid"));
+        String mytext=req.getParameter("mytext");
+        JSONObject jObject=new JSONObject();
+        jObject.put("mytext", mytext);
+        PrintWriter out=resp.getWriter();
+        out.print(jObject);
+        out.close();
+    }
+
+
+}
